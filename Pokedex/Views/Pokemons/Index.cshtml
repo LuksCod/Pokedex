@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    ViewData["Sidebar"] = "Pokemon";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -10,7 +11,7 @@
 <p>
     <a class="btn btn-danger px-5" asp-action="Create"> <i class="bi bi-plus-circle-fill"></i> Adicionar Pokemon</a>
 </p>
-<table class="table">
+<table class="table table-striped" id="table">
     <thead>
         <tr>
             <th>
@@ -49,11 +50,22 @@
                     @Html.DisplayFor(modelItem => item.Genero.Nome)
                 </td>
                 <td>
-                    <a class="text-decoration-none text-warning" asp-action="Edit" asp-route-id="@item.Numero"><i title="Editar" class="bi bi-pencil-fill"></i></a> | 
-                    <a class="text-decoration-none" asp-action="Details" asp-route-id="@item.Numero"><i title="Detalhes" class="bi bi-search"></i></a> |
+                    <a class="text-decoration-none text-warning" asp-action="Edit" asp-route-id="@item.Numero"><i title="Editar" class="bi bi-pencil-fill"></i></a>  
+                    <a class="text-decoration-none mx-2" asp-action="Details" asp-route-id="@item.Numero"><i title="Detalhes" class="bi bi-search"></i></a> 
                     <a class="text-decoration-none text-danger" asp-action="Delete" asp-route-id="@item.Numero"><i title="Deletar"class="bi bi-trash3-fill"></i></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section Styles{
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+}
+
+@section Scripts {
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#table');
+    </script>
+}

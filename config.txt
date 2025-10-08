@@ -5,7 +5,7 @@ git config --global user.email andreluizrosa4@gmail.com
 dotnet new mvc -o Pokedex
 cd Pokedex
 
-dotnet watch run
+dotnet watch run'
 
 dotnet add package Microsoft.EntityFrameworkCore --version 9.0.8
 dotnet add package Pomelo.EntityFrameworkCore.MySql --version 9.0.0
